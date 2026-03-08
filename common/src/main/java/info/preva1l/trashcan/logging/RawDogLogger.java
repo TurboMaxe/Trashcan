@@ -19,6 +19,7 @@ public class RawDogLogger extends ConsoleHandler {
     private static final String ANSI_FATAL = "\u001B[91;1m"; // Bright Red
     private static final String ANSI_WARN = "\u001B[33;1m"; // Yellow
     private static final String ANSI_DEBUG = "\u001B[36;1m"; // Cyan
+    private static final String ANSI_TIP = "\u001B[32m"; 
 
     @Override
     public void publish(LogRecord record) {
@@ -28,8 +29,10 @@ public class RawDogLogger extends ConsoleHandler {
             case "SEVERE" -> ANSI_ERROR;
             case "CONFIG" -> ANSI_DEBUG;
             case "FATAL" -> ANSI_FATAL;
+            case "TIP" -> ANSI_TIP;
             default -> "";
         };
         rawOut.println(ANSI_COLOR + getFormatter().format(record) + ANSI_RESET);
     }
+    
 }
