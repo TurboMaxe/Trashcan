@@ -10,12 +10,12 @@ import info.preva1l.trashcan.extension.annotations.PluginLoad;
  *
  * @author Preva1l
  */
-public class TestPlugin extends BasePlugin {
+public final class TestPlugin extends BasePlugin {
     public static TestPlugin instance;
 
-    boolean loaded = false;
-    boolean enabled = false;
-    boolean disabled = false;
+    private boolean loaded = false;
+    private boolean enabled = false;
+    private boolean disabled = false;
 
     public TestPlugin() {
         instance = this;
@@ -34,5 +34,6 @@ public class TestPlugin extends BasePlugin {
     @PluginDisable
     public void disable() {
         disabled = true;
+        enabled = false;
     }
 }
